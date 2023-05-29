@@ -1,3 +1,3 @@
 # Renti
 
-Renting reimagined...
+Modernized renting platform
