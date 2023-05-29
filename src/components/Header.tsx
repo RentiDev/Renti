@@ -4,16 +4,16 @@ import Link from "next/link";
 const Header = () => {
     return (
         <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="container flex items-center justify-between px-6 py-8 mx-auto">
+        <div className="container flex items-center justify-between px-6 py-10 mx-auto">
           <div className="flex items-center">
             {/* Logo */}
-            <Link href="/" className="text-black text-3xl font-lufgaExtraBold">
+            <Link href="/" className="text-black text-4xl font-lufgaBold">
               Renti
             </Link>
           </div>
-            <nav className="flex items-center bg-[hsl(246,246%,246%)] rounded-full p-6">
+            <div className="flex items-center bg-[hsl(246,246%,246%)] rounded-full px-12 py-5">
                 {/* // Navigation Links  */}
-                <nav className="flex space-x-16">
+                <div className="flex space-x-13 md:space-x-16">
                 <Link href="/" className="text-black font-lufga">
                     Tenant
                 </Link>
@@ -27,13 +27,13 @@ const Header = () => {
                     About
                 </Link>
                 <Link href="/" className="text-black font-lufga">
-                    Contact Us
+                    Contact
                 </Link>
                 {/* // Add more links as needed  */}
-                </nav>
+                </div>
                 {/* // Sign up button  */}
-            </nav> 
-            <Link href="/" className="text-black font-lufga">
+            </div> 
+            <Link href="/" className="text-black font-lufgaMedium">
                 Sign Up
             </Link>
         </div>

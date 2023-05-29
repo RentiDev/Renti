@@ -8,6 +8,11 @@
 }
 
 @font-face {
+    font-family: "Lufga-Medium";
+    src: url("../fonts/LufgaMedium.ttf");
+}
+
+@font-face {
     font-family: "Lufga-ExtraBold";
     src: url("../fonts/LufgaExtraBold.ttf");
 }
