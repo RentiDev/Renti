@@ -23,7 +23,7 @@ const Home: NextPage = () => {
               </h1>
             </div>
           </div>
-          <div className="h-screen w-screen bg-black">
+          <div className="h-screen w-screen">
             {/* <div className="flex flex-col items-center justify-center gap-12 px-4 py-16"> */}
           </div>
         </main>
