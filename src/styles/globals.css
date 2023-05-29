@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Lufga";
+    src: url("../fonts/LufgaRegular.ttf");
+}
+
+@font-face {
+    font-family: "Lufga-ExtraBold";
+    src: url("../fonts/LufgaExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "Lufga-Bold";
+    src: url("../fonts/LufgaBold.ttf");
+}
