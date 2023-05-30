@@ -16,7 +16,10 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <main className="flex min-h-screen flex-col items-center bg-white">
-          <div className="pl-[10vw] mx-auto items-center w-screen h-[90vh] bg-gradient-to-br from-[#71AAF7] to-[#356dbe]">
+          <div className="relative pl-[10vw] mx-auto items-center w-screen h-[90vh] bg-gradient-to-br from-[#71AAF7] to-[#356dbe]">
+            <div className="absolute bottom-0 right-0 overflow-x-visible">
+              <Image src="/../public/images/BuildingGoat.png" width={900} height={1000} alt="Building background image"/>
+            </div>
             <div className="container flex flex-col items-left justify-center gap-12 px-4 py-16 mt-32">
               <div>
                 <h1 className="text-5xl font-lufgaExtraBold tracking-tight text-white sm:text-[6rem] text-left">
@@ -27,16 +30,15 @@ const Home: NextPage = () => {
                   for a seamless and secure renting experience
                 </p>
               </div>
-              <select className="select select-bordered select-lg w-full max-w-xs">
+              {/* <select className="select select-bordered select-lg w-full max-w-xs">
                 <option disabled selected>Large</option>
                 <option>Large Apple</option>
                 <option>Large Orange</option>
                 <option>Large Tomato</option>
-              </select>
+              </select> */}
             </div>
-            <Image src="/../public/images/Building.png" width={500} height={500} alt="stfu"/>
           </div>
-          <div className="h-screen w-screen">
+          <div className="h-screen w-screen bg-black">
             {/* <div className="flex flex-col items-center justify-center gap-12 px-4 py-16"> */}
           </div>
         </main>

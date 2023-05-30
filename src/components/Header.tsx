@@ -11,22 +11,22 @@ const Header = () => {
               Renti
             </Link>
           </div>
-            <div className="flex items-center bg-[hsl(246,246%,246%)] rounded-full px-12 py-5">
+            <div className="flex items-center bg-[hsl(246,246%,246%)] rounded-full px-12 py-5 justify-center">
                 {/* // Navigation Links  */}
                 <div className="flex space-x-13 md:space-x-16">
-                <Link href="/" className="text-black font-lufga">
+                <Link href="/" className="hover:text-blue-500 text-black font-lufga">
                     Tenant
                 </Link>
-                <Link href="/" className="text-black font-lufga">
+                <Link href="/" className="hover:text-blue-500 text-black font-lufga">
                     Landlord
                 </Link>
-                <Link href="/" className="text-black font-lufga">
+                <Link href="/" className="hover:text-blue-500 text-black font-lufga">
                     Listings
                 </Link>
-                <Link href="/about" className="text-black font-lufga">
+                <Link href="/about" className="hover:text-blue-500 text-black font-lufga">
                     About
                 </Link>
-                <Link href="/" className="text-black font-lufga">
+                <Link href="/" className="hover:text-blue-500 text-black font-lufga">
                     Contact
                 </Link>
                 {/* // Add more links as needed  */}
@@ -51,7 +51,7 @@ const Header = () => {
                     <circle cx="12" cy="10" r="3" />
                     <circle cx="12" cy="12" r="10" />
                     </svg>
-                    <span>Sign Up</span>
+                    <span>Log In <br></br>Sign Up</span>
                 </Link>
             </div>
         </div>
