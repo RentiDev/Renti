@@ -4,7 +4,7 @@ import Link from "next/link";
 const Header = () => {
     return (
         <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="container flex items-center justify-between px-6 py-10 mx-auto">
+        <div className="container flex items-center justify-between px-10 py-10 mx-auto">
           <div className="flex items-center">
             {/* Logo */}
             <Link href="/" className="text-black text-4xl font-lufgaBold">
@@ -33,9 +33,27 @@ const Header = () => {
                 </div>
                 {/* // Sign up button  */}
             </div> 
-            <Link href="/" className="text-black font-lufgaMedium">
-                Sign Up
-            </Link>
+            <div className="daisyui flex items-center">
+                <Link href="/" className="text-black font-lufgaMedium flex items-center">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#000000"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mr-2"
+                    >
+                    <path d="M5.52 19c.64-2.2 1.84-3 3.22-3h6.52c1.38 0 2.58.8 3.22 3" />
+                    <circle cx="12" cy="10" r="3" />
+                    <circle cx="12" cy="12" r="10" />
+                    </svg>
+                    <span>Sign Up</span>
+                </Link>
+            </div>
         </div>
       </header>
     );
