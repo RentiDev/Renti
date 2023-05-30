@@ -14,13 +14,18 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        {/* <Header></Header> */}
         <main className="flex min-h-screen flex-col items-center bg-white">
-          <div className="pl-20 mx-auto items-center w-screen h-[90vh] bg-gradient-to-br from-[#71AAF7] to-[#356dbe]">
+          <div className="pl-[10vw] mx-auto items-center w-screen h-[90vh] bg-gradient-to-br from-[#71AAF7] to-[#356dbe]">
             <div className="container flex flex-col items-left justify-center gap-12 px-4 py-16 mt-32">
               <h1 className="text-5xl font-lufgaExtraBold tracking-tight text-white sm:text-[6rem] text-left">
                 RENTING <br></br><span className="text-black">REIMAGINED</span>
               </h1>
+              <select className="select select-bordered select-lg w-full max-w-xs">
+              <option disabled selected>Large</option>
+              <option>Large Apple</option>
+              <option>Large Orange</option>
+              <option>Large Tomato</option>
+            </select>
             </div>
           </div>
           <div className="h-screen w-screen">
