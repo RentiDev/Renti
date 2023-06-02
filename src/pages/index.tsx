@@ -33,21 +33,14 @@ const Home: NextPage = () => {
                   for a seamless and secure renting experience
                 </p>
               </div>
-              {/* <select className="select select-bordered select-lg w-full max-w-xs">
-                <option disabled selected>Large</option>
-                <option>Large Apple</option>
-                <option>Large Orange</option>
-                <option>Large Tomato</option>
-              </select> */}
-              <div className="flexbox w-[5vw] gap-y-3">
+              {/* <div className="flexbox w-[5vw] gap-y-3">
                 <GetStartedButton text="Landlords"></GetStartedButton>
                 <GetStartedButton text="Tenants"></GetStartedButton>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="container relative items-center h-screen w-screen bg-white">
-            {/* <div className="flex flex-col items-center justify-center gap-12 px-4 py-16"> */}
-            <div className="absolute inset-x-0 top-0">
+            {/* <div className="absolute inset-x-0 top-0">
               <Pill
                   items={
                       <>
@@ -57,9 +50,8 @@ const Home: NextPage = () => {
                       </>
                   }
               />
-            </div>
+            </div> */}
           </div>
-
         </main>
       </Layout>
     </>
