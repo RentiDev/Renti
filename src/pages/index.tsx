@@ -20,13 +20,14 @@ const Home: NextPage = () => {
       <Layout>
         <main className="flex min-h-screen max-w-full flex-col items-center bg-white overflow-hidden">
           <div className="relative pl-[10vw] mx-auto w-screen h-[90vh] bg-gradient-to-br from-[#C4DAFC] to-[#356dbe]">
-            <div className="absolute bottom-0 right-0 overflow-x-hidden">
-              <Image src="/../public/images/BuildingGoat.png" width={900} height={1000} alt="Building background image"/>
+            <div className="absolute bottom-0 right-0 overflow-x-hidden w-1/2 h-screen">
+                <Image className="object-contain absolute bottom-[0vh] right-[0vh]" src="/../public/images/BuildingGoat.png" width={4200} height={3700}
+                alt="Building background image"/>
             </div>
             <div className="container flex flex-col items-left justify-center gap-12 px-4 py-16 mt-32">
               <div>
                 <h1 className="text-5xl font-lufgaExtraBold tracking-tight text-black sm:text-[6rem] text-left">
-                  RENTING <br></br>REIMAGINED
+                  RENTING <br></br>RE-IMAGINED
                 </h1>
                 <p className="text-xl font-lufgaMedium text-black">
                   Renti streamlines the rental process, connecting landlords and tenants <br></br>
