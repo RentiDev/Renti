@@ -41,7 +41,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="container relative items-center h-screen w-screen bg-white">
-            {/* <div className="absolute inset-x-0 top-0">
+            {<div className="absolute inset-x-0 top-0">
               <Pill
                   items={
                       <>
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
                       </>
                   }
               />
-            </div> */}
+            </div>}
           </div>
         </main>
       </Layout>
