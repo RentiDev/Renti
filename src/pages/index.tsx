@@ -6,6 +6,7 @@ import DropDown from "../components/DropDown";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import PropertyCard from "../components/PropertyCard";
+import PropertyPicture from "../components/PropertyPicture";
 import Pill from "../components/Pill";
 import GetStartedButton from "~/components/GetStartedButton";
 
@@ -41,17 +42,19 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="container relative items-center h-screen w-screen bg-white">
-            {<div className="absolute inset-x-0 top-0">
-              <Pill
-                  items={
-                      <>
-                          <PropertyCard />
-                          <PropertyCard />
-                          <PropertyCard />
-                      </>
-                  }
-              />
-            </div>}
+            <div className="flex flex-col justify-bottom mt-6 space-x-4 top-0">
+              <div className = "flex-col w-2" >
+                <div className="absolute w-1/3 scale-[.7]">
+                  <PropertyPicture src="/images/Bedroom.jpg" alt="Bedroom" />
+                </div>
+                <div className="absolute scale- translate-x-[10vh] w-1/3 scale-[.85]">
+                  <PropertyPicture src="/images/Living Room.jpg" alt="Living Room" />
+                </div>
+                <div className="absolute translate-x-[20vh] w-1/3">
+                  <PropertyPicture src="/images/Dining Room.jpg" alt="Dining Room" />
+                </div>
+              </div>
+            </div>
           </div>
         </main>
       </Layout>
