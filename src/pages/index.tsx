@@ -9,6 +9,7 @@ import PropertyCard from "../components/PropertyCard";
 import PropertyPicture from "../components/PropertyPicture";
 import Pill from "../components/Pill";
 import GetStartedButton from "~/components/GetStartedButton";
+import PropertyDescription from "~/components/PropertyDescription";
 
 const Home: NextPage = () => {
   return (
@@ -54,7 +55,9 @@ const Home: NextPage = () => {
                   </div>
                 </div>
               <div className="flex items-center justify-center">
-                <h1>HELLO</h1>
+                <h1>
+                  <PropertyDescription name = "Elegant aparment" price = {92000} subheading = "A spacious, sunny apartment" size = {1200} number_bedrooms = {2} number_bathrooms = {2} description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae nisi id magna mattis faucibus. Sed in tellus eget tortor porta aliquet. Sed vitae dolor sit amet mi commodo lacinia. Sed sit amet nunc vitae purus faucibus tincidunt. Sed nec lectus in nisl dic." />
+                </h1>
               </div>
           </div>
               

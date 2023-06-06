@@ -21,3 +21,13 @@
     font-family: "Lufga-Bold";
     src: url("../fonts/LufgaBold.ttf");
 }
+
+@font-face {
+    font-family: "Lufga-Thin";
+    src: url("../fonts/LufgaThin.ttf");
+}
+
+@font-face {
+    font-family: "Lufga-BoldItalic";
+    src: url("../fonts/LufgaBoldItalic.ttf");
+}
