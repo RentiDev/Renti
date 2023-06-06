@@ -41,20 +41,25 @@ const Home: NextPage = () => {
               </div> */}
             </div>
           </div>
-          <div className="container relative items-center h-screen w-screen bg-white">
-            <div className="flex flex-col justify-bottom mt-6 space-x-4 top-0">
-              <div className = "flex-col w-2" >
-                <div className="absolute w-1/3 scale-[.7]">
-                  <PropertyPicture src="/images/Bedroom.jpg" alt="Bedroom" />
+          <div className="grid grid-cols-2 gap-4 items-center h-[90vh] w-screen px-[5vw] bg-white">
+              <div className="flex items-center">
+                  <div className="absolute w-1/3 scale-[.7]">
+                    <PropertyPicture src="/images/Bedroom.jpg" alt="Bedroom" />
+                  </div>
+                  <div className="absolute translate-x-[10vh] w-1/3 scale-[.85]">
+                    <PropertyPicture src="/images/Living Room.jpg" alt="Living Room" />
+                  </div>
+                  <div className="absolute translate-x-[20vh] w-1/3">
+                    <PropertyPicture src="/images/Dining Room.jpg" alt="Dining Room" />
+                  </div>
                 </div>
-                <div className="absolute scale- translate-x-[10vh] w-1/3 scale-[.85]">
-                  <PropertyPicture src="/images/Living Room.jpg" alt="Living Room" />
-                </div>
-                <div className="absolute translate-x-[20vh] w-1/3">
-                  <PropertyPicture src="/images/Dining Room.jpg" alt="Dining Room" />
-                </div>
+              <div className="flex items-center justify-center">
+                <h1>HELLO</h1>
               </div>
-            </div>
+          </div>
+              
+          <div className="relative mx-auto w-screen h-[90vh] bg-[#356dbe]">
+
           </div>
         </main>
       </Layout>
