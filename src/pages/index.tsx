@@ -36,10 +36,10 @@ const Home: NextPage = () => {
                   for a seamless and secure renting experience
                 </p>
               </div>
-              {/* <div className="flexbox w-[5vw] gap-y-3">
+              <div className="flexbox w-[5vw] gap-y-3">
                 <GetStartedButton text="Landlords"></GetStartedButton>
                 <GetStartedButton text="Tenants"></GetStartedButton>
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 items-center h-[90vh] w-screen px-[5vw] bg-white">
@@ -56,7 +56,13 @@ const Home: NextPage = () => {
                 </div>
               <div className="flex items-center justify-center">
                 <h1>
-                  <PropertyDescription name = "Elegant aparment" price = {92000} subheading = "A spacious, sunny apartment" size = {1200} number_bedrooms = {2} number_bathrooms = {2} description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae nisi id magna mattis faucibus. Sed in tellus eget tortor porta aliquet. Sed vitae dolor sit amet mi commodo lacinia. Sed sit amet nunc vitae purus faucibus tincidunt. Sed nec lectus in nisl dic." />
+                  <PropertyDescription name = "Elegant apartment" 
+                    price = {92000} 
+                    subheading = "A spacious, sunny apartment" 
+                    size = {1200} 
+                    number_bedrooms = {2} 
+                    number_bathrooms = {2} 
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae nisi id magna mattis faucibus. Sed in tellus eget tortor porta aliquet. Sed vitae dolor sit amet mi commodo lacinia. Sed sit amet nunc vitae purus faucibus tincidunt. Sed nec lectus in nisl dic." />
                 </h1>
               </div>
           </div>

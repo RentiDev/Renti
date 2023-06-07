@@ -3,7 +3,7 @@ import Link from "next/link";
 const UserMenu = () => {
     return (
         <div className="daisyui flex items-center">
-            <Link href="/" className="text-black font-lufgaMedium flex items-center">
+            <Link href="/login" className="text-black font-lufgaMedium flex items-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -20,7 +20,7 @@ const UserMenu = () => {
                     <circle cx="12" cy="10" r="3" />
                     <circle cx="12" cy="12" r="10" />
                 </svg>
-                <span>Log In <br></br>Sign Up</span>
+                <span>Log In</span>
             </Link>
         </div>
     );

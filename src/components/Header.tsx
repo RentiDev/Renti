@@ -14,7 +14,7 @@ const Header = () => {
             <div className="flex items-center bg-[hsl(246,246%,246%)] rounded-full px-12 py-5 justify-center">
                 {/* // Navigation Links  */}
                 <div className="flex space-x-13 md:space-x-16">
-                <Link href="/" className="hover:text-blue-500 text-black font-lufga">
+                <Link href="/index" className="hover:text-blue-500 text-black font-lufga">
                     Tenant
                 </Link>
                 <Link href="/" className="hover:text-blue-500 text-black font-lufga">

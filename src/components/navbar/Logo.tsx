@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Logo = () => {
     const router = useRouter();
 
     return (
         <div className="hidden md:block cursor-pointer text-3xl font-lufgaBold text-black">
+            <Link href="/">
             {/* <Image
                 alt="Logo"
                 className="hidden md:block cursor-pointer"
@@ -16,6 +18,7 @@ const Logo = () => {
                 src="/images/Logo.svg"
             /> */}
             Renti
+            </Link>
         </div>
     );
 };
