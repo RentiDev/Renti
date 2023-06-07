@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 
 const LoginWindow = () => {
     const handleLoginFormSubmit = (e) => {
@@ -8,33 +9,33 @@ const LoginWindow = () => {
   
     return (
       <div className="flex justify-center items-center fixed inset-0 bg-gradient-to-br from-[#C4DAFC] to-[#356dbe]">
-        <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+        <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
           <h2 className="text-3xl font-lufgaExtraBold text-gray-900 text-center mb-6">
             Log in to your account
           </h2>
           <form onSubmit={handleLoginFormSubmit}>
             <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-lufgaMedium text-gray-700">
+              <label htmlFor="email" className="block text-md font-lufgaMedium text-gray-700">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                className="mt-1 block w-full border-gray-300 font-lufgaMedium rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="p-4 mt-1 block w-full text-black bg-gray-200 border-gray-600 border-2 font-lufgaMedium rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-md"
                 placeholder="Enter your email"
                 required
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="password" className="block text-sm font-lufgaMedium text-gray-700">
+              <label htmlFor="password" className="block text-md font-lufgaMedium text-gray-700">
                 Password
               </label>
               <input
                 type="password"
                 id="password"
                 name="password"
-                className="mt-1 block w-full border-gray-300 font-lufgaMedium rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="p-4 mt-1 block w-full text-black bg-gray-200 border-gray-600 border-2 font-lufgaMedium rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-md"
                 placeholder="Enter your password"
                 required
               />
@@ -45,16 +46,16 @@ const LoginWindow = () => {
                   type="checkbox"
                   id="rememberMe"
                   name="rememberMe"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 bg-gray-600 border-gray-600 rounded-2xl"
                 />
-                <label htmlFor="rememberMe" className="ml-2 block text-sm font-lufgaMedium text-gray-900">
+                <label htmlFor ="rememberMe" className="ml-2 block text-sm font-lufgaMedium text-gray-700">
                   Remember me
                 </label>
               </div>
               <div className="text-sm">
-                <a href="#" className="font-lufgaMedium text-indigo-600 hover:text-indigo-500">
+                <Link href="#" className="font-lufgaMedium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
-                </a>
+                </Link>
               </div>
             </div>
             <div className="mt-6">
@@ -66,9 +67,9 @@ const LoginWindow = () => {
               </button>
             </div>
           </form>
-          <div className="mt-6 font-lufgaMedium text-sm text-center">
-            Don't have an account?{" "}
-            <Link href="/signup" className="font-lufgaMedium text-indigo-600 hover:text-indigo-500">
+          <div className="mt-6 font-lufgaMedium text-sm text-gray-500 text-center">
+            Don't have an account?
+            <Link href="/signup" className="ml-1 font-lufgaMedium text-indigo-600 hover:text-indigo-500">
               Sign up
             </Link>
           </div>

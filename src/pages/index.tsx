@@ -36,7 +36,7 @@ const Home: NextPage = () => {
                   for a seamless and secure renting experience
                 </p>
               </div>
-              <div className="flexbox w-[5vw] gap-y-3">
+              <div className="justify-left mx-4 flex gap-48 scale-150">
                 <GetStartedButton text="Landlords"></GetStartedButton>
                 <GetStartedButton text="Tenants"></GetStartedButton>
               </div>

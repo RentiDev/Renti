@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/Layout";
+import SignUpWindow from "../components/Login/SignUpWindow";
 
 const SignUp: NextPage = () => {
     return (
@@ -10,8 +11,7 @@ const SignUp: NextPage = () => {
         </Head>
         <Layout>
           <main>
-            <h1>About Page</h1>
-            <p>This is the about page content.</p>
+            <SignUp></SignUp>
           </main>
         </Layout>
       </>
