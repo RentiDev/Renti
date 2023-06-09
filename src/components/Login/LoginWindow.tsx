@@ -1,5 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import Button from "../Button";
+import {FcGoogle} from "react-icons/fc";
+import { signIn } from "next-auth/react";
 
 const LoginWindow = () => {
     const handleLoginFormSubmit = (e) => {
@@ -61,11 +64,19 @@ const LoginWindow = () => {
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-lufgaMedium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="w-full py-4 px-4 border border-transparent rounded-md shadow-sm text-md font-lufgaMedium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Sign in
               </button>
             </div>
+            <div className="flex flex-col mt-5 font-lufgaLight">
+                  <Button
+                    outline
+                    label="Continue with Google"
+                    icon={FcGoogle}
+                    onClick={() => signIn('google')}
+                  />
+                </div>
           </form>
           <div className="mt-6 font-lufgaMedium text-sm text-gray-500 text-center">
             Don't have an account?
