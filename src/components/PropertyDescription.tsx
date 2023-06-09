@@ -17,7 +17,7 @@ const PropertyDescription: React.FC<PropertyDescriptionProps> = ({ name, price, 
           {name}
         </h1>
         <p className="mt-4 text-3xl font-lufgaBold text-gray-800">
-          $ {price}
+          $ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
         </p>
         <p className="text-xl font-lufgaMedium text-slate-700">
           {subheading}
