@@ -11,7 +11,7 @@ const SignUp: NextPage = () => {
         </Head>
         <Layout>
           <main>
-            <SignUp></SignUp>
+            <SignUpWindow></SignUpWindow>
           </main>
         </Layout>
       </>

@@ -36,10 +36,10 @@ const Home: NextPage = () => {
                   for a seamless and secure renting experience
                 </p>
               </div>
-              <div className="justify-left mx-4 flex gap-48 scale-150">
+              {/* <div className="justify-left mx-4 flex gap-48 scale-150">
                 <GetStartedButton text="Landlords"></GetStartedButton>
                 <GetStartedButton text="Tenants"></GetStartedButton>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 items-center h-[90vh] w-screen px-[5vw] bg-white">
