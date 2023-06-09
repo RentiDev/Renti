@@ -8,7 +8,7 @@ import { signIn } from "next-auth/react";
 const SignUpWindow =() => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLoginFormSubmit = async (e) => {
+  const handleLoginFormSubmit = async (e: any) => {
     console.log("HELLO");
     e.preventDefault();
     const form = e.target;
@@ -28,9 +28,9 @@ const SignUpWindow =() => {
 
       console.log(response.data);
       setIsLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message)
-      console.error(error);
+      console.error(error.response.data);
 
       setIsLoading(false);
     }
