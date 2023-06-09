@@ -10,8 +10,15 @@ import PropertyPicture from "../components/PropertyPicture";
 import Pill from "../components/Pill";
 import GetStartedButton from "~/components/GetStartedButton";
 import PropertyDescription from "~/components/PropertyDescription";
+import AOS from 'aos';
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 const Home: NextPage = () => {
+  useEffect(()=> {
+    AOS.init();
+  }, []);
   return (
     <>
       <Head>
@@ -20,9 +27,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <main className="flex min-h-screen max-w-full flex-col items-center bg-white overflow-hidden">
+        <main className="flex min-h-screen max-w-full flex-col items-center bg-white overflow-hidden" data-aos="fade-up" data-aos-duration="500">
           <div className="relative pl-[10vw] mx-auto w-screen h-[90vh] bg-gradient-to-br from-[#C4DAFC] to-[#356dbe]">
-            <div className="absolute bottom-0 right-0 overflow-x-hidden w-1/2 h-screen">
+            <div className="absolute bottom-0 right-0 overflow-x-hidden w-1/2 h-screen" data-aos="fade-in" data-aos-duration="2000">
                 <Image className="object-contain absolute bottom-[0vh] right-[0vh]" src="/../public/images/BuildingGoat.png" width={4200} height={3700}
                 alt="Building background image"/>
             </div>
@@ -42,9 +49,9 @@ const Home: NextPage = () => {
               </div> */}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 items-center h-[90vh] w-screen px-[5vw] bg-white">
+          <div className="grid grid-cols-2 gap-4 items-center h-[90vh] w-screen px-[5vw] bg-white" data-aos="fade-up" data-aos-duration="2000">
               <div className="flex items-center">
-                  <div className="absolute w-1/3 scale-[.7]">
+                  <div className="absolute w-1/3 scale-[.7]" >
                     <PropertyPicture src="/images/Bedroom.jpg" alt="Bedroom" />
                   </div>
                   <div className="absolute translate-x-[10vh] w-1/3 scale-[.85]">
