@@ -4,8 +4,11 @@ import Button from "../Button";
 import {FcGoogle} from "react-icons/fc";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
+
 
 const LoginWindow = () => {
+  const router = useRouter();
     const handleLoginFormSubmit = (e) => {
       e.preventDefault();
 
@@ -14,6 +17,7 @@ const LoginWindow = () => {
         email: e.target.email.value,
         password: e.target.password.value,
         redirect: false,
+
       })
       .then((callback) => {
         console.log("callback")
@@ -23,6 +27,7 @@ const LoginWindow = () => {
         if (callback?.ok) {
           toast.success("Logged in successfully!");
           console.log("Logged in successfully!");
+          router.push('/');
         }
 
         if (callback?.error) {

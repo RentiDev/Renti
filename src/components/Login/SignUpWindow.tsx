@@ -4,6 +4,7 @@ import Button from '../Button';
 import { useState } from "react";
 import {FcGoogle} from 'react-icons/fc';
 import { signIn } from "next-auth/react";
+import toast from "react-hot-toast"
 
 const SignUpWindow =() => {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,11 +26,14 @@ const SignUpWindow =() => {
         password,
       });
 
+      toast.success("Succesfully registered!")
+
       console.log(response.data);
       setIsLoading(false);
     } catch (error: any) {
       console.log(error.message)
       console.error(error.response.data);
+      toast.error("Error registering!")
 
       setIsLoading(false);
     }
