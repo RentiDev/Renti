@@ -62,4 +62,3 @@ export default NextAuth({
   });
 
 
-// export default NextAuth(authOptions);

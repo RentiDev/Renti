@@ -3,11 +3,33 @@ import React from "react";
 import Button from "../Button";
 import {FcGoogle} from "react-icons/fc";
 import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
 
 const LoginWindow = () => {
     const handleLoginFormSubmit = (e) => {
       e.preventDefault();
+
       // Add your login form submission logic here
+      signIn("credentials", {
+        email: e.target.email.value,
+        password: e.target.password.value,
+        redirect: false,
+      })
+      .then((callback) => {
+        console.log("callback")
+        console.log(callback);
+
+
+        if (callback?.ok) {
+          toast.success("Logged in successfully!");
+          console.log("Logged in successfully!");
+        }
+
+        if (callback?.error) {
+          toast.error(callback.error);
+          console.log("Error logging in: ", callback.error);
+        }
+      })
     };
   
     return (

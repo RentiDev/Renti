@@ -9,7 +9,6 @@ const SignUpWindow =() => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoginFormSubmit = async (e: any) => {
-    console.log("HELLO");
     e.preventDefault();
     const form = e.target;
 
