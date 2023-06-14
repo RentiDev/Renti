@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const UserMenu = () => {
     return (
-        <div className="daisyui flex items-center">
+        <div className="daisyui flex items-center hover:scale-110 transition-all cursor-pointer">
             <Link href="/login" className="text-black font-lufgaMedium flex items-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -8,14 +8,14 @@ const Logo = () => {
     const router = useRouter();
 
     return (
-        <div className="hidden md:block cursor-pointer text-3xl font-lufgaBold text-black">
+        <div className="block cursor-pointer text-3xl font-lufgaBold text-black">
             <Link href="/">
             {/* <Image
-                alt="Logo"
-                className="hidden md:block cursor-pointer"
-                height="100"
-                width="100"
-                src="/images/Logo.svg"
+                // alt="Logo"
+                // className="hidden md:block cursor-pointer"
+                // height="100"
+                // width="100"
+                // src="/images/Logo.svg"
             /> */}
             Renti
             </Link>
