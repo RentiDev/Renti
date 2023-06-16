@@ -6,7 +6,13 @@ import UserMenu from "./UserMenu";
 import MenuButton from "./MenuButton";
 import MobileMenu from "./MobileMenu";
 
+import { signIn, useSession } from "next-auth/react";
+
 const Navbar = () => {
+
+  const { data: session } = useSession();
+  const userName = session?.user?.name;
+
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
@@ -27,7 +33,7 @@ const Navbar = () => {
       <div className="py-4">
         <Container>
           {isLargeScreen ? (
-            <LargeScreenLayout />
+            <LargeScreenLayout session={session} userName = {userName} />
           ) : (
             <SmallScreenLayout />
           )}
@@ -37,12 +43,16 @@ const Navbar = () => {
   );
 };
 
-const LargeScreenLayout = () => {
+const LargeScreenLayout = ({ session, userName }) => {
   return (
     <div className="flex flex-row items-center justify-evenly gap-4">
       <Logo />
       <NavLinks />
-      <UserMenu />
+      {session ? (
+        <p> Welcome, {userName} </p>
+      ) : (
+        <UserMenu />
+      )}
     </div>
   );
 };
