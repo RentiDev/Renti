@@ -35,7 +35,7 @@ const Navbar = () => {
           {isLargeScreen ? (
             <LargeScreenLayout session={session} userName = {userName} />
           ) : (
-            <SmallScreenLayout />
+            <SmallScreenLayout session={session} userName = {userName} />
           )}
         </Container>
       </div>
@@ -48,16 +48,12 @@ const LargeScreenLayout = ({ session, userName }) => {
     <div className="flex flex-row items-center justify-evenly gap-4">
       <Logo />
       <NavLinks />
-      {session ? (
-        <p> Welcome, {userName} </p>
-      ) : (
-        <UserMenu />
-      )}
+      <UserMenu session={session} userName={userName} />
     </div>
   );
 };
 
-const SmallScreenLayout = () => {
+const SmallScreenLayout = ({ session, userName }) => {
     const [open, setOpen] = useState(false);
     return (
       <div className="mx-10 my-3 flex flex-row items-center justify-between">
@@ -67,7 +63,7 @@ const SmallScreenLayout = () => {
             }}/>
             <Logo />
         </div>
-        <UserMenu/>
+        <UserMenu session={session} userName={userName}/>
         {open ? (<MobileMenu close={() => setOpen(false)}/>) : (<></>)}
       </div>
     );

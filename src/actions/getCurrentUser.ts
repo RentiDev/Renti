@@ -1,9 +1,7 @@
 import { getServerSession } from "next-auth/next"
 
-import { authOptions } from "src/server/auth";
+import { authOptions } from "src/pages/api/auth/[...nextauth]";
 import { prisma } from "src/server/db";
-
-import { env } from "~/env.mjs";
 
 export async function getSession() {
   return await getServerSession(authOptions)

@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Avatar from "../Avatar";
 
-const UserMenu = () => {
+const UserMenu = ({ session, userName }) => {
     return (
         <div className="daisyui flex items-center hover:scale-110 transition-all cursor-pointer">
             <Link href="/login" className="text-black font-lufgaMedium flex items-center">
@@ -20,7 +21,11 @@ const UserMenu = () => {
                     <circle cx="12" cy="10" r="3" />
                     <circle cx="12" cy="12" r="10" />
                 </svg>
-                <span>Log In</span>
+                { session ? ( 
+                    <span> Welcome, {userName} </span>
+                ) : (
+                    <span>Log In</span>
+                )}
             </Link>
         </div>
     );

@@ -1,9 +1,14 @@
+'use client';
+
+import fs from 'fs';
+
 import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import DropDown from "../components/DropDown";
 import Layout from "../components/Layout";
+import getCurrentUser from "~/actions/getCurrentUser";
 import UserProfile from "../components/UserProfile";
 import PropertyPicture from "../components/PropertyPicture";
 import GetStartedButton from "~/components/GetStartedButton";
@@ -12,11 +17,22 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { signIn, useSession } from "next-auth/react";
+
+
+
 
 const Home: NextPage = () => {
+  
+  // const currentUser = getCurrentUser();
+
   useEffect(()=> {
     AOS.init();
   }, []);
+
+  const { data: session } = useSession();
+  const userName = session?.user?.name;
+
   return (
     <>
       <Head>
@@ -73,7 +89,7 @@ const Home: NextPage = () => {
           </div>
               
           <div className="relative mx-auto w-screen h-[90vh] bg-[#356dbe]">
-              <UserProfile />
+              <UserProfile session={session} userName = {userName}/>
           </div>
         </main>
       </Layout>
