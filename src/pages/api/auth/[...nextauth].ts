@@ -20,11 +20,10 @@ export const authOptions: AuthOptions = {
       profile(profile, tokens) {
         return new Promise((resolve, reject) => {
           const url = "https://www.googleapis.com/oauth2/v3/userinfo";
-          const headers = { Authorization: `Bearer ${tokens.access_token}` };
-    
+          const headers = { Authorization: `Bearer ${tokens.access_token || ''}` };
           fetch(url, { headers })
             .then((res) => res.json())
-            .then((data) => {
+            .then((data: { sub: string, name: string, email: string, picture: string }) => {
               const { sub, name, email, picture } = data;
               resolve({ id: sub, name, email, image: picture });
             })
