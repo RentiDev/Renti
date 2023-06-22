@@ -2,13 +2,20 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcrypt';
 import { prisma } from '../../server/db';
 
+
+interface RegisterRequestBody {
+  email: string;
+  name: string;
+  password: string;
+}
+
 export default async function registerHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     // Return a 405 "Method Not Allowed" if the request method is not POST
     return res.status(405).end();
   }
 
-  const { email, name, password } = req.body;
+  const { email, name, password } = req.body as RegisterRequestBody;
 
   const hashedPassword = await bcrypt.hash(password, 12);
 
