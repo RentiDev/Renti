@@ -16,7 +16,21 @@ export const authOptions: AuthOptions = {
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      profile(profile, tokens) {
+        return new Promise((resolve, reject) => {
+          const url = "https://www.googleapis.com/oauth2/v3/userinfo";
+          const headers = { Authorization: `Bearer ${tokens.access_token}` };
+    
+          fetch(url, { headers })
+            .then((res) => res.json())
+            .then((data) => {
+              const { sub, name, email, picture } = data;
+              resolve({ id: sub, name, email, image: picture });
+            })
+            .catch((err) => reject(err));
+        });
+      },
     }),
     CredentialsProvider({
       name: 'credentials',

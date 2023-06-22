@@ -11,7 +11,8 @@ import { signIn, useSession } from "next-auth/react";
 const Navbar = () => {
 
   const { data: session } = useSession();
-  const userName = session?.user?.name;
+  const userName = session?.user?.name?.split(" ")[0];
+  console.log(session);
 
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
@@ -45,10 +46,14 @@ const Navbar = () => {
 
 const LargeScreenLayout = ({ session, userName }) => {
   return (
-    <div className="flex flex-row items-center justify-evenly gap-4">
+    <div className="flex flex-row items-center px-24 py-6 justify-start gap-4 relative">
       <Logo />
-      <NavLinks />
-      <UserMenu session={session} userName={userName} />
+      <div className="absolute left-1/2 transform -translate-x-1/2">
+        <NavLinks />
+      </div>
+      <div className="ml-auto">
+        <UserMenu session={session} userName={userName} />
+      </div>
     </div>
   );
 };

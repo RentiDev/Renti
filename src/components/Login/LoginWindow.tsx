@@ -103,7 +103,7 @@ const LoginWindow = () => {
                     icon={FcGoogle}
                     onClick={() => signIn('google')}
                   />
-                </div>
+            </div>
           </form>
           <div className="mt-6 font-lufgaMedium text-sm text-gray-500 text-center">
             Don't have an account?

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navlinks = () => {
     return (
-        <div className="flex items-center bg-white rounded-full px-12 py-5 justify-center">
+        <div className=" items-center bg-white rounded-full px-12 py-5 justify-center">
                 {/* // Navigation Links  */}
                 <div className="flex space-x-13 md:space-x-16">
                 <Link href="/" className="hover:text-blue-500 text-black font-lufga hover:scale-110 transition-all cursor-pointer">

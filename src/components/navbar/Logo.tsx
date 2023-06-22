@@ -8,7 +8,7 @@ const Logo = () => {
     const router = useRouter();
 
     return (
-        <div className="block cursor-pointer text-3xl font-lufgaBold text-black">
+        <div className="block cursor-pointer text-4xl font-lufgaBold text-black">
             <Link href="/">
             {/* <Image
                 // alt="Logo"
