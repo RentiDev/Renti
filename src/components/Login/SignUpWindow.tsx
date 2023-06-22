@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { Axios, AxiosError } from "axios";
 import Link from 'next/link';
 import Button from '../Button';
 import { useState } from "react";
@@ -9,35 +9,40 @@ import toast from "react-hot-toast"
 const SignUpWindow =() => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLoginFormSubmit = async (e: any) => {
+  const handleLoginFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const form = e.target;
-
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-
+    const form = e.currentTarget;
+  
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+  
     try {
-      console.log("Hello again")
       setIsLoading(true);
-      const response = await axios.post("/api/register", {
+      axios.post("/api/register", {
         name,
         email,
         password,
+      }).then((response) => {
+        toast.success("Successfully registered!");
+        console.log(response.data);
+        setIsLoading(false);
+      }).catch((error) => {
+        if (axios.isAxiosError(error)) {
+          console.log(error.response?.data);
+        }
+        toast.error("Error registering!");
+        setIsLoading(false);
       });
-
-      toast.success("Succesfully registered!")
-
-      console.log(response.data);
-      setIsLoading(false);
-    } catch (error: any) {
-      console.log(error.message)
-      console.error(error.response.data);
-      toast.error("Error registering!")
-
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.log(error.response?.data);
+      }
+      toast.error("Error registering!");
       setIsLoading(false);
     }
   };
+
 
   return (
           <div className="flex justify-center items-center fixed inset-0 bg-gradient-to-br from-[#C4DAFC] to-[#356dbe]">
@@ -98,7 +103,18 @@ const SignUpWindow =() => {
                   outline
                   label="Continue with Google"
                   icon={FcGoogle}
-                  onClick={() => signIn('google')}
+                  onClick={() => {
+                    signIn('google')
+                      .then(() => {
+                        // Handle successful sign-in
+                        toast.success("Successfully registered!");
+                      })
+                      .catch((error: unknown) => {
+                        // Handle error during sign-in
+                        toast.error("Error registering!");
+                      });
+                  }}
+                  
                 />
               </div>
               <div className="mt-6 font-lufgaMedium text-sm text-gray-500 text-center">
