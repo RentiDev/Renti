@@ -43,7 +43,7 @@ const Home: NextPage = () => {
         <main className="flex min-h-screen max-w-full flex-col items-center bg-white overflow-hidden" data-aos="fade-up" data-aos-duration="500">
           <div className="relative pl-[10vw] mx-auto w-screen h-[90vh] bg-gradient-to-br from-[#C4DAFC] to-[#356dbe]">
             <div className="absolute bottom-0 right-0 overflow-x-hidden w-1/2 h-screen" data-aos="fade-in" data-aos-duration="2000">
-                <Image className="object-contain absolute bottom-[0vh] right-[0vh]" src="/public/images/bgbuilding.png" width={4200} height={3700}
+                <Image className="object-contain absolute bottom-[0vh] right-[0vh]" src="/images/bgbuilding.png" width={4200} height={3700}
                 alt="Building background image"/>
             </div>
             <div className="container flex flex-col items-left justify-center gap-12 px-4 py-16 mt-32">
