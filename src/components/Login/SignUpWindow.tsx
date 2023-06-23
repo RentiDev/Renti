@@ -5,9 +5,11 @@ import { useState } from "react";
 import {FcGoogle} from 'react-icons/fc';
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast"
+import { useRouter } from "next/router";
 
 const SignUpWindow =() => {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleLoginFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -27,6 +29,13 @@ const SignUpWindow =() => {
         toast.success("Successfully registered!");
         console.log(response.data);
         setIsLoading(false);
+        router.push('/')
+        .then(() => {
+          console.log("Redirected to home page");
+        })
+        .catch((error: unknown) => {
+          // Handle error during sign-in
+        });
       }).catch((error) => {
         if (axios.isAxiosError(error)) {
           console.log(error.response?.data);
@@ -97,26 +106,37 @@ const SignUpWindow =() => {
                     Sign up
                   </button>
                 </div>
-              </form>
-              <div className="flex flex-col mt-5 font-lufgaLight">
+                <div className="flex flex-col mt-5 font-lufgaLight">
                 <Button
                   outline
                   label="Continue with Google"
                   icon={FcGoogle}
                   onClick={() => {
-                    signIn('google')
-                      .then(() => {
-                        // Handle successful sign-in
-                        toast.success("Successfully registered!");
-                      })
-                      .catch((error: unknown) => {
-                        // Handle error during sign-in
-                        toast.error("Error registering!");
-                      });
+                    signIn('google', { callbackUrl: '/' })
+                    .then((callback) => {
+                      if (callback?.ok) {
+                        toast.success('Logged in successfully!');
+                        router.push('/')
+                        .then(() => {
+                          console.log("Redirected to home page");
+                        })
+                        .catch((error: unknown) => {
+                          // Handle error during sign-in
+                        });
+                      }
+                      if (callback?.error) {
+                        toast.error(callback.error);
+                        console.log('Error logging in: ', callback.error);
+                      }
+                    })
+                    .catch((error: any) => {
+                      console.log('Error logging in: ', error);
+                    });
                   }}
                   
                 />
               </div>
+              </form>
               <div className="mt-6 font-lufgaMedium text-sm text-gray-500 text-center">
                 Already have an account?
                 <Link href="/login" className="ml-1 font-lufgaMedium text-indigo-600 hover:text-indigo-500">

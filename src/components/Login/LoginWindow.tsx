@@ -118,13 +118,26 @@ const LoginWindow = () => {
                     label="Continue with Google"
                     icon={FcGoogle}
                     onClick={() => {
-                      signIn('google')
-                        .then(() => {
-                          // Handle successful sign-in
-                        })
-                        .catch((error: unknown) => {
-                          // Handle error during sign-in
-                        });
+                      signIn('google', { callbackUrl: '/' })
+                      .then((callback) => {
+                        if (callback?.ok) {
+                          toast.success('Logged in successfully!');
+                          router.push('/')
+                          .then(() => {
+                            console.log("Redirected to home page");
+                          })
+                          .catch((error: unknown) => {
+                            // Handle error during sign-in
+                          });
+                        }
+                        if (callback?.error) {
+                          toast.error(callback.error);
+                          console.log('Error logging in: ', callback.error);
+                        }
+                      })
+                      .catch((error: any) => {
+                        console.log('Error logging in: ', error);
+                      });
                     }}
                   />
             </div>
