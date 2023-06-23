@@ -39,7 +39,9 @@ const UserMenu = ({ session, userName }: UserMenuProps) => {
                                             onClick={() => {
                                                 console.log("logout");
                                                 signOut().then(() => console.log("Signed out successfully")).catch((error) => console.error(error));
-                                              }} >
+                                              }} 
+                                            style={{ transform: 'scale(1.1)' }}
+                                        >
                                             Log Out
                                         </button>
                                     </div>
@@ -48,7 +50,7 @@ const UserMenu = ({ session, userName }: UserMenuProps) => {
                         </div>
                     </>
                 ) : (
-                    <span className="flex gap-3 items-center justify-center px-3">Log In <Avatar/> </span>
+                    <span className="flex gap-3 items-center justify-center px-3 hover:scale-110">Log In <Avatar/> </span>
                 )}
 
             </Link>
