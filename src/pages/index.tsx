@@ -9,7 +9,6 @@ import Link from "next/link";
 import DropDown from "../components/DropDown";
 import Layout from "../components/Layout";
 import getCurrentUser from "~/actions/getCurrentUser";
-import UserProfile from "../components/UserProfile";
 import PropertyPicture from "../components/PropertyPicture";
 import GetStartedButton from "~/components/GetStartedButton";
 import PropertyDescription from "~/components/PropertyDescription";
@@ -88,9 +87,6 @@ const Home: NextPage = () => {
               </div>
           </div>
               
-          <div className="relative mx-auto w-screen h-[90vh] bg-[#356dbe]">
-              <UserProfile session={session} userName = {userName}/>
-          </div>
         </main>
       </Layout>
     </>

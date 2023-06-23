@@ -7,11 +7,17 @@ import MenuButton from "./MenuButton";
 import MobileMenu from "./MobileMenu";
 
 import { signIn, useSession } from "next-auth/react";
+import { type Session } from "next-auth";
+
+interface LayoutProps {
+  session: Session | null;
+  userName: string;
+}
 
 const Navbar = () => {
 
   const { data: session } = useSession();
-  const userName = session?.user?.name?.split(" ")[0];
+  const userName = session?.user?.name?.split(" ")[0] ?? "Guest";
   console.log(session);
 
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -34,9 +40,9 @@ const Navbar = () => {
       <div className="py-4">
         <Container>
           {isLargeScreen ? (
-            <LargeScreenLayout session={session} userName = {userName} />
+            <LargeScreenLayout session={session} userName={userName} />
           ) : (
-            <SmallScreenLayout session={session} userName = {userName} />
+            <SmallScreenLayout session={session} userName={userName} />
           )}
         </Container>
       </div>
@@ -44,7 +50,7 @@ const Navbar = () => {
   );
 };
 
-const LargeScreenLayout = ({ session, userName }) => {
+const LargeScreenLayout = ({ session, userName }: LayoutProps) => {
   return (
     <div className="flex flex-row items-center px-24 py-6 justify-start gap-4 relative">
       <Logo />
@@ -58,7 +64,7 @@ const LargeScreenLayout = ({ session, userName }) => {
   );
 };
 
-const SmallScreenLayout = ({ session, userName }) => {
+const SmallScreenLayout = ({ session, userName }: LayoutProps) => {
     const [open, setOpen] = useState(false);
     return (
       <div className="mx-10 my-3 flex flex-row items-center justify-between">

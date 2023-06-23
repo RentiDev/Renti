@@ -3,7 +3,14 @@ import React, { useState } from "react";
 import Avatar from "../Avatar";
 import { signOut } from "next-auth/react";
 
-const UserMenu = ({ session, userName }) => {
+import { type Session } from "next-auth";
+
+interface UserMenuProps {
+    session: Session | null;
+    userName: string;
+}
+
+const UserMenu = ({ session, userName }: UserMenuProps) => {
     const [isHovering, setIsHovering] = useState(false);
 
     return (
@@ -29,7 +36,11 @@ const UserMenu = ({ session, userName }) => {
                                     <div className="absolute right-0 w-full bg-white rounded-lg shadow-xl">
                                         <button
                                             className="block rounded-lg w-full h-full px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white"
-                                            onClick={() => { console.log("logout"); signOut()}}
+                                            onClick={() => {
+                                                console.log("logout");
+                                                signOut().then(() => console.log("Signed out successfully")).catch((error) => console.error(error));
+                                              }} 
+                                            style={{ transform: 'scale(1.1)' }}
                                         >
                                             Log Out
                                         </button>
@@ -39,7 +50,7 @@ const UserMenu = ({ session, userName }) => {
                         </div>
                     </>
                 ) : (
-                    <span className="flex gap-3 items-center justify-center px-3">Log In <Avatar/> </span>
+                    <span className="flex gap-3 items-center justify-center px-3 hover:scale-110">Log In <Avatar/> </span>
                 )}
 
             </Link>

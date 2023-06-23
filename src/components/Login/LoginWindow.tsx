@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import React from "react";
 import Button from "../Button";
 import {FcGoogle} from "react-icons/fc";
@@ -9,15 +10,17 @@ import { useRouter } from "next/router";
 
 const LoginWindow = () => {
   const router = useRouter();
-    const handleLoginFormSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+    const handleLoginFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       // Add your login form submission logic here
       signIn("credentials", {
-        email: e.target.email.value,
-        password: e.target.password.value,
+        email,
+        password,
         redirect: false,
-
       })
       .then((callback) => {
         console.log("callback")
@@ -27,7 +30,13 @@ const LoginWindow = () => {
         if (callback?.ok) {
           toast.success("Logged in successfully!");
           console.log("Logged in successfully!");
-          router.push('/');
+          router.push('/')
+            .then(() => {
+              console.log("Redirected to home page");
+            })
+            .catch((error: unknown) => {
+              // Handle error during sign-in
+            });
         }
 
         if (callback?.error) {
@@ -35,6 +44,9 @@ const LoginWindow = () => {
           console.log("Error logging in: ", callback.error);
         }
       })
+      .catch((error: any) => {
+        console.log("Error logging in: ", error);
+      });
     };
   
     return (
@@ -50,6 +62,8 @@ const LoginWindow = () => {
               </label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 id="email"
                 name="email"
                 className="p-4 mt-1 block w-full text-black bg-gray-200 border-gray-600 border-2 font-lufgaMedium rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-md"
@@ -64,6 +78,8 @@ const LoginWindow = () => {
               <input
                 type="password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 className="p-4 mt-1 block w-full text-black bg-gray-200 border-gray-600 border-2 font-lufgaMedium rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-md"
                 placeholder="Enter your password"
@@ -101,12 +117,20 @@ const LoginWindow = () => {
                     outline
                     label="Continue with Google"
                     icon={FcGoogle}
-                    onClick={() => signIn('google')}
+                    onClick={() => {
+                      signIn('google')
+                        .then(() => {
+                          // Handle successful sign-in
+                        })
+                        .catch((error: unknown) => {
+                          // Handle error during sign-in
+                        });
+                    }}
                   />
             </div>
           </form>
           <div className="mt-6 font-lufgaMedium text-sm text-gray-500 text-center">
-            Don't have an account?
+            Don&apos;t have an account?
             <Link href="/signup" className="ml-1 font-lufgaMedium text-indigo-600 hover:text-indigo-500">
               Sign up
             </Link>
