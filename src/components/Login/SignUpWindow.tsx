@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Button from '../Button';
 import { useState } from "react";
 import {FcGoogle} from 'react-icons/fc';
+import {FaFacebookF} from 'react-icons/fa';
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast"
 import { useRouter } from "next/router";
@@ -106,7 +107,7 @@ const SignUpWindow =() => {
                     Sign up
                   </button>
                 </div>
-                <div className="flex flex-col mt-5 font-lufgaLight">
+                <div className="flex flex-col mt-5 gap-3 font-lufgaLight">
                 <Button
                   outline
                   label="Continue with Google"
@@ -134,6 +135,33 @@ const SignUpWindow =() => {
                     });
                   }}
                   
+                />
+                <Button
+                  outline
+                  label="Continue with Facebook"
+                  icon={FaFacebookF}
+                  onClick = {() => {
+                    signIn('facebook', { callbackUrl: '/' })
+                    .then((callback) => {
+                      if (callback?.ok) {
+                        toast.success('Logged in successfully!');
+                        router.push('/')
+                        .then(() => {
+                          console.log("Redirected to home page");
+                        })
+                        .catch((error: unknown) => {
+                          // Handle error during sign-in
+                        });
+                      }
+                      if (callback?.error) {
+                        toast.error(callback.error);
+                        console.log('Error logging in: ', callback.error);
+                      }
+                    })
+                    .catch((error: any) => {
+                      console.log('Error logging in: ', error);
+                    });
+                  }}
                 />
               </div>
               </form>

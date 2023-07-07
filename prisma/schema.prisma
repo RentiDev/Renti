@@ -57,11 +57,30 @@ model User {
     emailVerified DateTime?
     image         String?
     hashedPassword String?
+    landlord      Boolean   @default(false)
+    tenant       Boolean   @default(false)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     favoriteIds String[] @db.ObjectId
     accounts Account[]
     // sessions      Session[]
+}
+
+model Listing {
+    id            String    @id @default(auto()) @map("_id") @db.ObjectId
+    title         String
+    description   String
+    price         Int
+    image         String
+    beds          Int
+    baths         Int
+    squareMeters  Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    favoritedBy   User[]    @relation("Favorites", references: [id])
+    favoritedById String[]  @db.ObjectId
+    author        User      @relation(fields: [authorId], references: [id])
+    authorId      String
 }
 
 // model VerificationToken {

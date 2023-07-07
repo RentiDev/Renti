@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth, { type AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import FacebookProvider from "next-auth/providers/facebook";
+// import {LoginSocialFacebook} from "reactjs-social-login";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
@@ -30,6 +32,10 @@ export const authOptions: AuthOptions = {
             .catch((err) => reject(err));
         });
       },
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID as string,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
     }),
     CredentialsProvider({
       name: "credentials",
