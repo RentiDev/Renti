@@ -61,7 +61,25 @@ model User {
     updatedAt DateTime @updatedAt
     favoriteIds String[] @db.ObjectId
     accounts Account[]
+    isTenant Boolean @default(false)
+    isLandlord Boolean @default(false)
+    listings Listing[]
     // sessions      Session[]
+}
+
+model Listing {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  price       Float
+  images      String[]
+  address     String
+  latitude    Float
+  longitude   Float
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  landlord    User      @relation(fields: [landlordId], references: [id])
+  landlordId  String
 }
 
 // model VerificationToken {
