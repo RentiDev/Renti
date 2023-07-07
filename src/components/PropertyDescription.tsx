@@ -1,4 +1,5 @@
 import React from 'react';
+import {BiBed, BiBath} from 'react-icons/bi';
 
 interface PropertyDescriptionProps {
   name: string;
@@ -26,11 +27,11 @@ const PropertyDescription: React.FC<PropertyDescriptionProps> = ({ name, price, 
           <p className="text-xl font-lufgaMedium text-slate-900 mr-5">
             {size} sqft
           </p>
-          <img src = "/images/bed.svg" style={{ width: '36px', height: '36px' }} />
+          <BiBed size={30} fill = "slate-700" />
           <p className="text-xl font-lufgaMedium text-slate-900 mr-5">
             {number_bedrooms} bedrooms
           </p>
-          <img src = "/images/bath.svg" style={{ width: '40px', height: '40px' }} />
+          <BiBath size={30} fill = "slate-700"/>
           <p className="text-xl font-lufgaMedium text-slate-900">
             {number_bathrooms} bathrooms
           </p>
