@@ -27,11 +27,11 @@ const PropertyDescription: React.FC<PropertyDescriptionProps> = ({ name, price, 
           <p className="text-xl font-lufgaMedium text-slate-900 mr-5">
             {size} sqft
           </p>
-          <BiBath size={30} fill = "slate-700" />
+          <BiBed size={30} fill = "slate-700" />
           <p className="text-xl font-lufgaMedium text-slate-900 mr-5">
             {number_bedrooms} bedrooms
           </p>
-          <BiBed size={30} fill = "slate-700"/>
+          <BiBath size={30} fill = "slate-700"/>
           <p className="text-xl font-lufgaMedium text-slate-900">
             {number_bathrooms} bathrooms
           </p>
