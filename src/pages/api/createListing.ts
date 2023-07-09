@@ -1,14 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../server/db';
 
+
 interface CreateListingRequestBody {
   title: string;
   description: string;
   price: number;
-  images: string[];
+  // images: string[];
   address: string;
-  latitude: number;
-  longitude: number;
   landlordId: string;
 }
 
@@ -18,7 +17,7 @@ export default async function createListingHandler(req: NextApiRequest, res: Nex
     return res.status(405).end();
   }
 
-  const { title, description, price, images, address, latitude, longitude, landlordId } = req.body as CreateListingRequestBody;
+  const { title, description, price, address, landlordId } = req.body as CreateListingRequestBody;
 
   try {
     console.log("Creating listing...")
@@ -27,19 +26,11 @@ export default async function createListingHandler(req: NextApiRequest, res: Nex
             title,
             description,
             price,
-            images,
+            // images,
             address,
-            latitude,
-            longitude,
-            landlord: {
-                connect: {
-                    id: landlordId,
-                },
-            },
-        },
+            landlordId
+        }
     });
-
-
 
     return res.status(201).json(listing);
   } catch (error) {

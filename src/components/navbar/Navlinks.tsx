@@ -8,7 +8,7 @@ const Navlinks = () => {
                 <Link href="/" className="hover:text-blue-500 text-black font-lufga hover:scale-110 transition-all cursor-pointer">
                     Tenant
                 </Link>
-                <Link href="/" className="hover:text-blue-500 text-black font-lufga hover:scale-110 transition-all cursor-pointer">
+                <Link href="/landlord" className="hover:text-blue-500 text-black font-lufga hover:scale-110 transition-all cursor-pointer">
                     Landlord
                 </Link>
                 <Link href="/" className="hover:text-blue-500 text-black font-lufga hover:scale-110 transition-all cursor-pointer">

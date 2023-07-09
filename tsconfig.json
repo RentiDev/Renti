@@ -29,6 +29,6 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs"
-  ],
+, "src/components/Listings/AddListingWindow.tsx"  ],
   "exclude": ["node_modules"]
 }
