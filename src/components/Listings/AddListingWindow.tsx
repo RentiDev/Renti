@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import { getSession, useSession } from 'next-auth/react';
 import { IoReturnUpBackOutline } from 'react-icons/io5';
+import { Dropdown } from "@nextui-org/react"
 
 interface CreateListingRequestBody {
   title: string;
@@ -32,7 +33,7 @@ const AddListingWindow = () => {
     const handleLoad = async () => {
       if (status === "loading") return; // Do nothing while loading
       if (!session) { // If no session, redirect to login
-        toast.error("You need to be logged in to create a listing");
+        toast.error("You need to be logged in to create a listing"); // If not logged in, advertise services to landlords and incentivize a sign up - render a different page entirely
         await sleep(2000);
         router.push("/login").catch((error: unknown) => {
           // Handle error during redirect
@@ -50,7 +51,7 @@ const AddListingWindow = () => {
     );
   }, [session, status, router]);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -62,21 +63,6 @@ const AddListingWindow = () => {
     const formAddress = (form.elements.namedItem('address') as HTMLInputElement).value;
     // const formlandlordId = localStorage.getItem('userId') || '';
 
-    // const formData = new FormData();
-    // formData.append('title', title);
-    // formData.append('description', description);
-    // formData.append('price', String(price));
-    // for (const image of images) {
-    //   const reader = new FileReader();
-    //   reader.readAsDataURL(image);
-    //   reader.onloadend = () => {
-    //     const base64data = reader.result?.toString().split(',')[1];
-    //     if (base64data) {
-    //       formData.append('images', base64data);
-    //     }
-    //   };
-    // }
-    // formData.append('address', address);
     try {
       const response = await axios.post("/api/createListing", {
         title: formTitle,
@@ -106,17 +92,37 @@ const AddListingWindow = () => {
 
   return (
     // <div onLoad = {handleLoad}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">
-          Title:
-          <input 
-            type="text" 
-            id="title"
-            name="title"
-            placeholder="Enter title"
-            required 
-          />
+    <div className="flex justify-center mt-10">
+      <form className="w-1/2" onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-lufgaBold mb-2" htmlFor="title">
+            Title:
+            <input 
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              type="text" 
+              id="title"
+              name="title"
+              placeholder="Enter title"
+              required 
+            />
+          </label>
+        </div>
+        <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-lufgaBold mb-2" htmlFor="unitType">
+          Property Type
         </label>
+        <select 
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+          id="unitType"
+          name="unitType"
+          required 
+        >
+          <option value="">Select property type</option>
+          <option value="Apartment">Apartment</option>
+          <option value="House">House</option>
+          <option value="Condo">Condo</option>
+        </select>
+      </div>
         <br />
         <label htmlFor="description">
           Description:
@@ -163,9 +169,16 @@ const AddListingWindow = () => {
           />
         </label> */}
         <br />
-        <button type="submit">Create Listing</button>
+        <div className="flex items-center justify-between">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Create Listing
+          </button>
+        </div>
       </form>
-    // </div>
+    </div>
   );
 };
 

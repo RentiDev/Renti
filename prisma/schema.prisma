@@ -68,15 +68,25 @@ model User {
 }
 
 model Listing {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  description String
-  price       Float
-  address     String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  landlord    User      @relation(fields: [landlordId], references: [id])
-  landlordId  String
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  unitType        String?
+  bedrooms        Int?
+  bathrooms       Int?
+  size            Int?
+  parkingIncluded Boolean?
+  images          String[]
+  description     String?
+  price           Float?
+  address         String?
+  city            String?
+  province        String?
+  country         String?
+  postalCode      String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  landlord        User        @relation(fields: [landlordId], references: [id])
+  landlordId      String
 }
 
 // model VerificationToken {
