@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
-import { getSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import { IoReturnUpBackOutline } from 'react-icons/io5';
 
 interface CreateListingRequestBody {
@@ -24,22 +24,31 @@ const AddListingWindow = () => {
   // console.log(session?.user.id);
   const router = useRouter();
   const [landlordId, setLandlordId] = useState('');
+  const { data: session, status } = useSession();
 
-  const handleLoad = async () => {
-    const session = await getSession();
-    if (session) {
-      console.log("user id:");
-      console.log(session.user.id)
-      setLandlordId(session.user.id);
-    } else {
-      toast.error("You need to be logged in to create a listing");
-    }
-    console.log(landlordId)
-  }
+  const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
   useEffect(() => {
-    handleLoad();
-  }, [router.asPath]);
+    const handleLoad = async () => {
+      if (status === "loading") return; // Do nothing while loading
+      if (!session) { // If no session, redirect to login
+        toast.error("You need to be logged in to create a listing");
+        await sleep(2000);
+        router.push("/login").catch((error: unknown) => {
+          // Handle error during redirect
+        });
+      } else {
+        console.log("user id:");
+        console.log(session.user.id);
+        setLandlordId(session.user.id);
+      }
+    };
+    
+    handleLoad().catch((error: unknown) => {
+      // Handle error during load
+    }
+    );
+  }, [session, status, router]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,12 +77,6 @@ const AddListingWindow = () => {
     //   };
     // }
     // formData.append('address', address);
-
-    if (!landlordId) {
-      toast.error("You need to be logged in to create a listing");
-      return;
-    }
-  
     try {
       const response = await axios.post("/api/createListing", {
         title: formTitle,
@@ -85,7 +88,7 @@ const AddListingWindow = () => {
       });
       console.log(response.data);
       toast.success("Successfully created listing!");
-      router.push("/listings")
+      router.push("/landlord")
         .then(() => {
           console.log("Redirected to home page");
         })
@@ -93,7 +96,6 @@ const AddListingWindow = () => {
           // Handle error during sign-in
         });
     } catch (error) {
-      console.log(error.response?.data);
       if (axios.isAxiosError(error)) {
         console.log(error.response?.data);
         toast.error("Error creating listing!");
