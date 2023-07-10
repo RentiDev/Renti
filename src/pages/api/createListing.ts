@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getSession } from 'next-auth/react';
 import { prisma } from '../../server/db';
 
 
@@ -18,6 +19,18 @@ export default async function createListingHandler(req: NextApiRequest, res: Nex
   }
 
   const { title, description, price, address, landlordId } = req.body as CreateListingRequestBody;
+
+  // const session = await getSession({ req });
+
+  // if (!session) {
+  //   return res.status(401).json({ message: 'Unauthorized' });
+  // }
+
+  // if (session.user.id !== landlordId) {
+  //   console.log(session.user.id)
+  //   console.log(landlordId)
+  //   return res.status(401).json({ message: 'Unauthorized' });
+  // }
 
   try {
     console.log("Creating listing...")

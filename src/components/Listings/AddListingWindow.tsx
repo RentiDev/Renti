@@ -21,24 +21,25 @@ const AddListingWindow = () => {
   // const [price, setPrice] = useState(0);
   // const [images, setImages] = useState<File[]>([]);
   // const [address, setAddress] = useState('');
+  // console.log(session?.user.id);
   const router = useRouter();
   const [landlordId, setLandlordId] = useState('');
 
-  // const handleLoad = async () => {
-  //   const session = await getSession();
-  //   if (session) {
-  //     console.log("user id:");
-  //     console.log(session.user.id)
-  //     setLandlordId(session.user.id);
-  //   } else {
-  //     toast.error("You need to be logged in to create a listing");
-  //   }
-  //   console.log(landlordId)
-  // }
+  const handleLoad = async () => {
+    const session = await getSession();
+    if (session) {
+      console.log("user id:");
+      console.log(session.user.id)
+      setLandlordId(session.user.id);
+    } else {
+      toast.error("You need to be logged in to create a listing");
+    }
+    console.log(landlordId)
+  }
 
-  // useEffect(() => {
-  //   handleLoad();
-  // }, [router.asPath]);
+  useEffect(() => {
+    handleLoad();
+  }, [router.asPath]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -80,11 +81,11 @@ const AddListingWindow = () => {
         price: formPrice,
         // images: formImages,
         address: formAddress,
-        landlordId: localStorage.getItem('userId') || '',
+        landlordId: landlordId,
       });
       console.log(response.data);
       toast.success("Successfully created listing!");
-      router.push("/")
+      router.push("/listings")
         .then(() => {
           console.log("Redirected to home page");
         })

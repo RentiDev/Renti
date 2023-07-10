@@ -4,8 +4,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-
 import { prisma } from "src/server/db";
+import { User } from "@prisma/client"
+import { Session as NextAuthSession } from "next-auth";
+import { JWT } from "next-auth/jwt";
+
+interface Session extends NextAuthSession {
+  id?: string;
+}
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -62,6 +68,15 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    session: ({ session, token }) => ({
+      ...session,
+      user: {
+        ...session.user,
+        id: token.sub,
+      },
+    }),
+  },
   pages: {
     signIn: "/",
     
