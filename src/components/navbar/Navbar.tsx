@@ -24,7 +24,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024); // Adjust the breakpoint as per your requirement
+      setIsLargeScreen(window.innerWidth >= 1366); // Adjust the breakpoint as per your requirement
     };
 
     window.addEventListener("resize", handleResize);
