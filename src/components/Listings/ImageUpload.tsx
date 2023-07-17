@@ -1,13 +1,12 @@
 import Heading from "../Heading";
 import ImageUploader from "./ImageUploader";
-import {FieldValues, useForm} from "react-hook-form";
+import {type FieldValues, useForm} from "react-hook-form";
 
 const ImageUpload = () => {
     const { 
         setValue,
         watch,
         formState: {
-          errors,
         },
       } = useForm<FieldValues>({
         defaultValues: {
@@ -23,7 +22,7 @@ const ImageUpload = () => {
         }
       });
     
-    const setCustomValue = (id: string, value: any) => {
+    const setCustomValue = (id: string, value: string) => {
         setValue(id, value, {
             shouldDirty: true,
             shouldTouch: true,
@@ -31,7 +30,7 @@ const ImageUpload = () => {
     })
     }
     
-    const imageSrc = watch('imageSrc');
+    const imageSrc: string = watch('imageSrc') as string;
 
     return (
         <div className="flex flex-col gap-4">
