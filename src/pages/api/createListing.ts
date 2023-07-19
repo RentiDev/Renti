@@ -7,7 +7,7 @@ interface CreateListingRequestBody {
   title: string;
   description: string;
   price: number;
-  // images: string[];
+  images: string[];
   address: string;
   landlordId: string;
 }
@@ -18,7 +18,7 @@ export default async function createListingHandler(req: NextApiRequest, res: Nex
     return res.status(405).end();
   }
 
-  const { title, description, price, address, landlordId } = req.body as CreateListingRequestBody;
+  const { title, description, price, images, address, landlordId } = req.body as CreateListingRequestBody;
 
   // const session = await getSession({ req });
 
@@ -39,7 +39,7 @@ export default async function createListingHandler(req: NextApiRequest, res: Nex
             title,
             description,
             price,
-            // images,
+            images,
             address,
             landlordId
         }

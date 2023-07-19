@@ -2,7 +2,11 @@ import Heading from "../Heading";
 import ImageUploader from "./ImageUploader";
 import {type FieldValues, useForm} from "react-hook-form";
 
-const ImageUpload = () => {
+interface ImageUploadProps {
+    onImageUpload: (value: string) => void;
+}
+
+const ImageUpload = ({ onImageUpload }: ImageUploadProps) => {
     const { 
         setValue,
         watch,
@@ -23,6 +27,9 @@ const ImageUpload = () => {
       });
     
     const setCustomValue = (id: string, value: string) => {
+      if (id === 'imageSrc') {
+        onImageUpload(value);
+      }
         setValue(id, value, {
             shouldDirty: true,
             shouldTouch: true,

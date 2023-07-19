@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { getSession, useSession } from 'next-auth/react';
 import { IoReturnUpBackOutline } from 'react-icons/io5';
 import { Dropdown } from "@nextui-org/react"
+import ImageUpload from './ImageUpload';
 
 interface CreateListingRequestBody {
   title: string;
@@ -20,12 +21,13 @@ const AddListingWindow = () => {
   // const [title, setTitle] = useState('');
   // const [description, setDescription] = useState('');
   // const [price, setPrice] = useState(0);
-  // const [images, setImages] = useState<File[]>([]);
+  // const [images, setImages] = useState([]);
   // const [address, setAddress] = useState('');
   // console.log(session?.user.id);
   const router = useRouter();
   const [landlordId, setLandlordId] = useState('');
   const { data: session, status } = useSession();
+  const [imageSrcs, setImageSrcs] = useState<string[]>([]);
 
   const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -68,7 +70,7 @@ const AddListingWindow = () => {
         title: formTitle,
         description: formDescription,
         price: formPrice,
-        // images: formImages,
+        images: imageSrcs,
         address: formAddress,
         landlordId: landlordId,
       })
@@ -90,8 +92,17 @@ const AddListingWindow = () => {
         }
       });
   };
+
   
-  
+  const handleNewImageUpload = (newImageSrc: string) => {
+    setImageSrcs((currentImageSrcs) => {
+      const updatedImageSrcs = [...currentImageSrcs, newImageSrc];
+      console.log(updatedImageSrcs);
+      return updatedImageSrcs;
+    });
+};
+
+
 
   return (
     // <div onLoad = {handleLoad}>
@@ -182,6 +193,7 @@ const AddListingWindow = () => {
           </button>
         </div>
       </form>
+      <ImageUpload onImageUpload={handleNewImageUpload}/>
     </div>
   );
 };
