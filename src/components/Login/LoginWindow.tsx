@@ -3,6 +3,7 @@ import { useState } from "react";
 import React from "react";
 import Button from "../Button";
 import {FcGoogle} from "react-icons/fc";
+import {FaFacebookF} from "react-icons/fa";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
@@ -112,7 +113,7 @@ const LoginWindow = () => {
                 Sign in
               </button>
             </div>
-            <div className="flex flex-col mt-5 font-lufgaLight">
+            <div className="flex gap-3 flex-col mt-5 font-lufgaLight">
                   <Button
                     outline
                     label="Continue with Google"
@@ -140,6 +141,33 @@ const LoginWindow = () => {
                       });
                     }}
                   />
+                {/* <Button
+                  outline
+                  label="Continue with Facebook"
+                  icon={FaFacebookF}
+                  onClick = {() => {
+                    signIn('facebook', { callbackUrl: '/' })
+                    .then((callback) => {
+                      if (callback?.ok) {
+                        toast.success('Logged in successfully!');
+                        router.push('/')
+                        .then(() => {
+                          console.log("Redirected to home page");
+                        })
+                        .catch((error: unknown) => {
+                          // Handle error during sign-in
+                        });
+                      }
+                      if (callback?.error) {
+                        toast.error(callback.error);
+                        console.log('Error logging in: ', callback.error);
+                      }
+                    })
+                    .catch((error: any) => {
+                      console.log('Error logging in: ', error);
+                    });
+                  }}
+                /> */}
             </div>
           </form>
           <div className="mt-6 font-lufgaMedium text-sm text-gray-500 text-center">

@@ -17,6 +17,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { signIn, useSession } from "next-auth/react";
+import Services from "~/components/LandingPage/Services/Services";
 
 
 
@@ -47,7 +48,7 @@ const Home: NextPage = () => {
                 alt="Building background image"/>
             </div>
             <div className="container flex flex-col items-left justify-center gap-12 px-4 py-16 mt-32">
-              <div>
+              <div className="container flex items-left justify-center flex-col gap-8">
                 <h1 className="text-5xl font-lufgaExtraBold tracking-tight text-black sm:text-[6rem] text-left">
                   RENTING <br></br>RE-IMAGINED
                 </h1>
@@ -85,7 +86,8 @@ const Home: NextPage = () => {
                     description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae nisi id magna mattis faucibus. Sed in tellus eget tortor porta aliquet. Sed vitae dolor sit amet mi commodo lacinia. Sed sit amet nunc vitae purus faucibus tincidunt. Sed nec lectus in nisl dic." />
                 </h1>
               </div>
-          </div>
+            </div>
+          <Services />
               
         </main>
       </Layout>
