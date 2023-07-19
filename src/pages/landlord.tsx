@@ -24,7 +24,7 @@ const Landlord: NextPage = () => {
               </div>
               <div className="w-5/6 h-5/6 flex flex-col bg-white rounded-2xl">
                 <div className="flex flex-col gap-10 mx-24 my-12">
-                  <ImageUpload></ImageUpload>
+                  {/* <ImageUpload></ImageUpload> */}
                 </div>
               </div>
             </div>
