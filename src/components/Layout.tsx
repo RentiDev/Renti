@@ -14,6 +14,7 @@ const Layout = ({children}: LayoutProps) => {
         <Toaster />
         <Navbar />
         <main className="flex-grow bg-white">{children}</main>
+        <Footer />
       </div>
     </div>
   );
