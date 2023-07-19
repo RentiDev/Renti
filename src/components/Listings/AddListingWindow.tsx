@@ -51,43 +51,46 @@ const AddListingWindow = () => {
     );
   }, [session, status, router]);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-
+  
     const form = event.currentTarget;
-
+  
     const formTitle = (form.elements.namedItem('title') as HTMLInputElement).value;
     const formDescription = (form.elements.namedItem('description') as HTMLInputElement).value;
     const formPrice = Number((form.elements.namedItem('price') as HTMLInputElement).value);
     // const formImages = Array.from((form.elements.namedItem('images') as HTMLInputElement).files || []);
     const formAddress = (form.elements.namedItem('address') as HTMLInputElement).value;
     // const formlandlordId = localStorage.getItem('userId') || '';
-
-    try {
-      const response = await axios.post("/api/createListing", {
+  
+    axios
+      .post("/api/createListing", {
         title: formTitle,
         description: formDescription,
         price: formPrice,
         // images: formImages,
         address: formAddress,
         landlordId: landlordId,
+      })
+      .then(response => {
+        console.log(response.data);
+        toast.success("Successfully created listing!");
+        router.push("/landlord")
+          .then(() => {
+            console.log("Redirected to home page");
+          })
+          .catch((error: unknown) => {
+            // Handle error during sign-in
+          });
+      })
+      .catch(error => {
+        if (axios.isAxiosError(error)) {
+          console.log(error.response?.data);
+          toast.error("Error creating listing!");
+        }
       });
-      console.log(response.data);
-      toast.success("Successfully created listing!");
-      router.push("/landlord")
-        .then(() => {
-          console.log("Redirected to home page");
-        })
-        .catch((error: unknown) => {
-          // Handle error during sign-in
-        });
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log(error.response?.data);
-        toast.error("Error creating listing!");
-      }
-    }
   };
+  
   
 
   return (
@@ -118,6 +121,7 @@ const AddListingWindow = () => {
           required 
         >
           <option value="">Select property type</option>
+
           <option value="Apartment">Apartment</option>
           <option value="House">House</option>
           <option value="Condo">Condo</option>
