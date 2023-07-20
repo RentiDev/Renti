@@ -106,21 +106,34 @@ const AddListingWindow = () => {
 
   return (
     // <div onLoad = {handleLoad}>
-    <div className="flex justify-center mt-10">
-      <form className="w-1/2" onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-lufgaBold mb-2" htmlFor="title">
-            Title:
-            <input 
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
-              type="text" 
-              id="title"
-              name="title"
-              placeholder="Enter title"
-              required 
-            />
-          </label>
-        </div>
+    <div className="flex flex-col justify-self-center mt-10 mx-32">
+      <form className="w-full" onSubmit={handleSubmit}>
+      <div className="flex items-center flex-row justify-between mb-4">
+        <label className="block text-gray-700 text-4xl font-lufgaBold mr-6" htmlFor="title">
+          Title:
+        </label>
+        <input 
+          className=" appearance-none 
+                      border-b-4 
+                      bg-white
+                      w-full 
+                      py-2 
+                      px-3 
+                      text-slate-700 
+                      leading-tight 
+                      focus:outline-none 
+                      focus:border-slate-900 
+                      transition
+                      duration-500 
+                      ease-in
+                      focus:shadow-xl"
+          type="text" 
+          id="title"
+          name="title"
+          placeholder="Enter title"
+          required 
+        />
+      </div>
         <div className="mb-4">
         <label className="block text-gray-700 text-sm font-lufgaBold mb-2" htmlFor="unitType">
           Property Type
