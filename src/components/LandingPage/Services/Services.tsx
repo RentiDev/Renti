@@ -8,8 +8,8 @@ const Services = () => {
 
     const [tab, setTab] = useState("tenant");
 
-    const tenantClasses = "flex flex-col items-center h-[200vh] w-screen px-[5vw] bg-gradient-to-bl from-blue-100 via-blue-300 to-blue-500";
-    const landlordClasses = "flex flex-col items-center h-[200vh] w-screen px-[5vw] bg-gradient-to-bl from-green-200 via-green-400 to-green-500";
+    const tenantClasses = "flex flex-col items-center w-screen px-[5vw] pb-20 bg-gradient-to-bl from-blue-100 via-blue-300 to-blue-500";
+    const landlordClasses = "flex flex-col items-center w-screen px-[5vw] pb-20 bg-gradient-to-bl from-violet-100 via-violet-300 to-violet-500";
   
 
     return (
