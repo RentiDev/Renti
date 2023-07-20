@@ -106,85 +106,79 @@ const AddListingWindow = () => {
 
   return (
     // <div onLoad = {handleLoad}>
-    <div className="flex flex-col justify-self-center mt-10 mx-32">
+    <div className="flex flex-col justify-self-center mt-10 mx-40">
       <form className="w-full" onSubmit={handleSubmit}>
-      <div className="flex items-center flex-row justify-between mb-4">
-        <label className="block text-gray-700 text-4xl font-lufgaBold mr-6" htmlFor="title">
-          Title:
-        </label>
+      <div className="relative mb-4">
         <input 
-          className=" appearance-none 
-                      border-b-4 
-                      bg-white
-                      w-full 
-                      py-2 
-                      px-3 
-                      text-slate-700 
-                      leading-tight 
-                      focus:outline-none 
-                      focus:border-slate-900 
-                      transition
-                      duration-500 
-                      ease-in
-                      focus:shadow-xl"
+          className=" peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
           type="text" 
           id="title"
           name="title"
           placeholder="Enter title"
           required 
         />
-      </div>
-        <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-lufgaBold mb-2" htmlFor="unitType">
-          Property Type
+        <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm" htmlFor="title">
+          Title
         </label>
+      </div>
+      <div className="mb-4 relative">
         <select 
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+          className="bg-white h-10 appearance-none border-b-4 border-gray-300 w-full py-2 pr-3 text-gray-600 leading-tight focus:outline-none focus:border-[#0f59c1] focus:shadow-outline"
           id="unitType"
           name="unitType"
           required 
         >
-          <option value="">Select property type</option>
-
-          <option value="Apartment">Apartment</option>
-          <option value="House">House</option>
-          <option value="Condo">Condo</option>
+          <option value="Apartment" className="text-gray-600 hover:bg-gray-100 text-lg font-Medium">Apartment</option>
+          <option value="House" className="text-gray-600 hover:bg-gray-100 text-lg font-Medium">House</option>
+          <option value="Condo" className="text-gray-600 hover:bg-gray-100 text-lg font-Medium">Condo</option>
         </select>
+        <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+          <svg className="w-4 h-4 fill-current text-gray-600" viewBox="0 0 20 20">
+            <path d="M10 12l-5-5 1.41-1.41L10 9.17l3.59-3.58L15 7l-5 5z" />
+          </svg>
+        </div>
       </div>
-        <br />
-        <label htmlFor="description">
-          Description:
-          <input 
-            type="text" 
-            id="description"
-            name="description"
-            placeholder="Enter description"
-            required
-          />
+      <div className="relative mb-4">
+        <input 
+          className="peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
+          type="text" 
+          id="description"
+          name="description"
+          placeholder="Enter Description"
+          required
+        />
+        <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm" htmlFor="description">
+          Description
         </label>
-        <br />
-        <label htmlFor="price">
-          Price:
-          <input 
-            type="number" 
-            id="price"
-            name="price"
-            placeholder="Enter price"
-            required 
-          />
-            </label>
-            <br />
-        <label htmlFor="address">
-          Address:
-          <input 
-            type="text" 
-            id="address"
-            name="address"
-            placeholder="Enter address"
-            required
-          />
+      </div>
+      <div className="relative mb-4">
+        <input 
+          className="peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
+          type="number" 
+          id="price"
+          name="price"
+          placeholder="Enter Price"
+          required
+          min = "0"
+        />
+        <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm" htmlFor="price">
+          Price
         </label>
-        <br />
+      </div>
+      <div className="relative mb-4">
+        <input 
+          className="peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
+          type="text" 
+          id="address"
+          name="address"
+          placeholder="Enter Address"
+          required
+          min = "0"
+        />
+        <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm" htmlFor="address">
+          Address
+        </label>
+      </div>
         {/* <label htmlFor="images">
           Images:
           <input 
@@ -195,16 +189,16 @@ const AddListingWindow = () => {
             multiple
             required
           />
-        </label> */}
-        <br />
-        <div className="flex items-center justify-between">
+        </label> 
+        <br />*/}
+        <div className="flex text-center items-center justify-center">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Create Listing
-          </button>
-        </div>
+          </button> 
+        </div> 
       </form>
       <ImageUpload onImageUpload={handleNewImageUpload}/>
     </div>
