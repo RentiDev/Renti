@@ -15,14 +15,14 @@ const ServiceView = ( {title, text, image, imageSmall}: ServiceViewProps ) => {
                     width={400}
                     height={400}
                     alt="" 
-                    className="object-contain h-72 w-full" />
+                    className="object-contain h-96 w-full" />
 
                 {imageSmall && (
                     <Image src={imageSmall} 
                         width={150}
                         height={150}
                         alt="" 
-                        className="object-contain h-36 w-36 absolute top-0 right-0 -mt-12 -mr-12" />
+                        className="object-contain h-36 w-36 absolute top-0 right-0 -mt-12 -mr-12 shadow-2xl" />
                 )}
             </div>
             {/* text div */}
