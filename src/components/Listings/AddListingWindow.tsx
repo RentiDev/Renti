@@ -106,9 +106,9 @@ const AddListingWindow = () => {
 
   return (
     // <div onLoad = {handleLoad}>
-    <div className="flex flex-col justify-self-center mt-10 mx-40">
+    <div className="flex flex-col justify-self-center mt-10 mx-[1vw]">
       <form className="w-full" onSubmit={handleSubmit}>
-      <div className="relative mb-4">
+      <div className="relative mb-8">
         <input 
           className=" peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
           type="text" 
@@ -121,7 +121,7 @@ const AddListingWindow = () => {
           Title
         </label>
       </div>
-      <div className="mb-4 relative">
+      <div className="mb-8 relative">
         <select 
           className="bg-white h-10 appearance-none border-b-4 border-gray-300 w-full py-2 pr-3 text-gray-600 leading-tight focus:outline-none focus:border-[#0f59c1] focus:shadow-outline"
           id="unitType"
@@ -138,7 +138,7 @@ const AddListingWindow = () => {
           </svg>
         </div>
       </div>
-      <div className="relative mb-4">
+      <div className="relative mb-8">
         <input 
           className="peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
           type="text" 
@@ -151,7 +151,7 @@ const AddListingWindow = () => {
           Description
         </label>
       </div>
-      <div className="relative mb-4">
+      <div className="relative mb-8">
         <input 
           className="peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
           type="number" 
@@ -165,7 +165,7 @@ const AddListingWindow = () => {
           Price
         </label>
       </div>
-      <div className="relative mb-4">
+      <div className="relative mb-8">
         <input 
           className="peer h-10 w-full border-b-4 border-gray-300 text-slate-700 placeholder-transparent bg-white focus:outline-none focus:border-[#0f59c1]"
           type="text" 
@@ -191,7 +191,7 @@ const AddListingWindow = () => {
           />
         </label> 
         <br />*/}
-        <div className="flex text-center items-center justify-center">
+        <div className="flex text-center items-center justify-center my-8">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
