@@ -9,7 +9,7 @@ interface NavBarProps {
 const SelectUserNavBar = ({ onTabChange, activeTab }: NavBarProps) => {
 
     return (
-        <div className="mt-10 flex items-center gap-3 bg-white rounded-full px-5 py-5">
+        <div className="mt-10 flex items-center gap-3 bg-white rounded-full px-5 shadow-xl py-5">
                 <TabButton
                     text="For Tenants"
                     handleClick={() => onTabChange("tenant")}

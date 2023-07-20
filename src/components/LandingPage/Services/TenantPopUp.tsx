@@ -4,31 +4,23 @@ import ServiceView from "./ServiceView";
 
 const Tenant = () => {
     return (
-        <div className="grid grid-cols-3 place-items-center justify-center gap-[10vw] mt-20">
-            <div> 
-                <ServiceView 
-                    title={"One-click Applications"}
-                    text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-                    image={"/favicon.ico"}
-                />
-            </div>
-
-            <div>
-                <ServiceView 
-                        title={"Roommate Matching"}
-                        text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-                        image={"/favicon.ico"}
-                />
-            </div>
-
-            <div>
-                <ServiceView 
-                        title={"Maintenance Requests"}
-                        text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-                        image={"/favicon.ico"}
-                />
-            </div>
-
+        <div className="flex flex-col items-start justify-center mx-auto gap-10vh w-full max-w-5xl">
+            <ServiceView 
+                title={"One-click Applications"}
+                text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                image={"/favicon.ico"}
+            />
+            <ServiceView 
+                title={"Roommate Matching"}
+                text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                image={"/favicon.ico"}
+            />
+            <ServiceView 
+                title={"Maintenance Requests"}
+                text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                image={"/images/services/tenant3-1.webp"}
+                imageSmall={"/images/services/tenant3-2.webp"}
+            />
         </div>
     )
 }

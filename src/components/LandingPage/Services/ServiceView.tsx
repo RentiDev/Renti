@@ -4,24 +4,36 @@ interface ServiceViewProps {
     title: string,
     text: string,
     image: string,
+    imageSmall? : string
 }
 
-const ServiceView = ( {title, text, image}: ServiceViewProps ) => {
+const ServiceView = ( {title, text, image, imageSmall}: ServiceViewProps ) => {
     return (
-        <div className="flex flex-col items-center justify-center text-center text-black bg-white p-4 rounded-md shadow-lg font-lufga">
-            <div className="mb-2 font-lufgaBold text-black text-3xl">
-                <h1> {title} </h1>
-            </div>
-            <div className="mb-4">
+        <div className="flex items-center justify-center gap-[15vw] text-center text-black p-4 mt-20 rounded-md font-lufga">
+            <div className="w-1/2 relative">
                 <Image src={image} 
-                    width={200}
-                    height={200}
+                    width={400}
+                    height={400}
                     alt="" 
-                    className="object-contain h-48 w-full" />
-            </div>
+                    className="object-contain h-72 w-full" />
 
-            <div className='font-lufga'>
-                <p> {text} </p>
+                {imageSmall && (
+                    <Image src={imageSmall} 
+                        width={150}
+                        height={150}
+                        alt="" 
+                        className="object-contain h-36 w-36 absolute top-0 right-0 -mt-12 -mr-12" />
+                )}
+            </div>
+            {/* text div */}
+            <div className="w-1/2 flex flex-col justify-start ">
+                <div className="mb-2 font-lufgaBold text-black text-5xl text-left">
+                    <h1> {title} </h1>
+                </div>
+
+                <div className='font-lufga mt-5 text-left'>
+                    <p> {text} </p>
+                </div>
             </div>
         </div>
     )
