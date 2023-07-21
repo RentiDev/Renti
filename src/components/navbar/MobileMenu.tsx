@@ -56,7 +56,7 @@ export default function MobileMenu({ close }: MobileMenuProps) {
                 </Link>
               </div>
               <div className="block py-2">
-                <Link href="/" className="text-xl hover:text-blue-500 text-black font-lufgaMedium">
+                <Link href="/landlord" className="text-xl hover:text-blue-500 text-black font-lufgaMedium">
                   Landlords
                 </Link>
               </div>

@@ -27,7 +27,7 @@ const Landlord: NextPage = () => {
                   Find exceptional tenants for your property today! 
                 </p>
               </div>
-              <div className="w-3/5 h-5/6 flex flex-col bg-white rounded-2xl">
+              <div className="w-4/5 lg:w-3/5 h-5/6 flex flex-col bg-white rounded-2xl">
                 <div className="flex flex-col gap-10 mx-24 my-12">
                   <AddListingWindow></AddListingWindow>
                 </div>
